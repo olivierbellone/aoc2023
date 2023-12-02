@@ -1,0 +1,18 @@
+# Opinionated cops - see https://ruby-style-guide.shopify.dev/ for explanations
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-sorbet
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.2
+
+Style/ClassMethodsDefinitions:
+  Enabled: true
+  EnforcedStyle: def_self
