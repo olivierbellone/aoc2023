@@ -1,11 +1,10 @@
 # typed: strict
 # frozen_string_literal: true
 
-require "sorbet-runtime"
+require_relative "aoc2023/autoloader"
+AoC2023::Autoloader.setup
 
-require_relative "aoc2023/solver"
-require_relative "aoc2023/day1"
-require_relative "aoc2023/day2"
+require "sorbet-runtime"
 
 module AoC2023
   extend T::Sig
@@ -14,6 +13,29 @@ module AoC2023
     {
       1 => AoC2023::Day1,
       2 => AoC2023::Day2,
+      3 => AoC2023::Day3,
+      4 => AoC2023::Day4,
+      5 => AoC2023::Day5,
+      6 => AoC2023::Day6,
+      7 => AoC2023::Day7,
+      8 => AoC2023::Day8,
+      9 => AoC2023::Day9,
+      10 => AoC2023::Day10,
+      11 => AoC2023::Day11,
+      12 => AoC2023::Day12,
+      13 => AoC2023::Day13,
+      14 => AoC2023::Day14,
+      15 => AoC2023::Day15,
+      16 => AoC2023::Day16,
+      17 => AoC2023::Day17,
+      18 => AoC2023::Day18,
+      19 => AoC2023::Day19,
+      20 => AoC2023::Day20,
+      21 => AoC2023::Day21,
+      22 => AoC2023::Day22,
+      23 => AoC2023::Day23,
+      24 => AoC2023::Day24,
+      25 => AoC2023::Day25,
     },
     T::Hash[Integer, T.class_of(Solver)],
   )
@@ -29,9 +51,9 @@ module AoC2023
   end
 
   sig { params(args: T::Array[String]).returns([Integer, String]) }
-  def self.parse_args(args)
+  private_class_method def self.parse_args(args)
     if args.size != 2
-      $stderr.puts("Syntax: aoc2023 <day#> <input file>")
+      $stderr.puts("Syntax: #{$PROGRAM_NAME} <day number> <input file>")
       exit(1)
     end
 

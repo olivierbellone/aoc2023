@@ -5,6 +5,8 @@ require "rake/testtask"
 require "rubocop/rake_task"
 require "bundler/audit/task"
 
+extend Rake::DSL
+
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
   t.libs << "lib"
