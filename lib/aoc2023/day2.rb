@@ -28,7 +28,8 @@ module AoC2023
             set.split(", ").map do |number_and_color|
               parts = number_and_color.split(" ", 2)
               [T.must(parts[1]).to_sym, T.must(parts[0]).to_i]
-            end.to_h
+            end
+              .to_h
           end
 
           [T.must(m["game_number"]).to_i, sets]
